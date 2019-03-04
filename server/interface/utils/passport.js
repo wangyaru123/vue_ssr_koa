@@ -1,12 +1,9 @@
 import passport from 'koa-passport'
-//本地策略
 import LocalStrategy from 'passport-local'
 import UserModel from '../../dbs/models/users'
 
-//用户登录校验
 passport.use(
   new LocalStrategy(async function(username, password, done) {
-    //查询条件
     let where = {
       username
     }
@@ -22,12 +19,13 @@ passport.use(
     }
   })
 )
-//存储到session--序列化
+
 passport.serializeUser(function(user, done) {
   done(null, user)
 })
-//反序列化
+
 passport.deserializeUser(function(user, done) {
-  done(null, user)
+  return done(null, user)
 })
+
 export default passport

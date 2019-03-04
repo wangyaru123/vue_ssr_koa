@@ -2,14 +2,6 @@ const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 
-// const mongoose = require('mongoose')
-// const bodyParser = require('koa-bodyparser')
-// const session = require('koa-generic-session')
-// const Redis = require('koa-redis')
-// const json = require('koa-json')
-// const dbConfig = require('./dbs/config')
-// const passport = require('./interface/utils/passport')
-// const users = require('./interface/users')
 import mongoose from 'mongoose'
 import cors from 'koa2-cors'
 import bodyParser from 'koa-bodyparser'

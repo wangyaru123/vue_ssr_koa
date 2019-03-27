@@ -89,7 +89,6 @@ router.post('/signin', async (ctx, next) => {
       }
     } else {
       if (user) {
-        console.log('000', user)
         ctx.body = {
           code: 0,
           msg: '登录成功',
@@ -174,7 +173,6 @@ router.get('/exit', async (ctx, next) => {
 router.get('/getUser', async ctx => {
   if (ctx.isAuthenticated()) {
     const { username, email } = ctx.session.passport.user
-    console.log('ctx.session', ctx.session)
     ctx.body = {
       user: username,
       email

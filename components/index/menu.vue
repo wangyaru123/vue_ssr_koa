@@ -5,7 +5,7 @@
       @mouseleave="mleave">
       <dt>全部分类</dt>
       <dd 
-        v-for="(item,idx) in menu" 
+        v-for="(item,idx) in $store.state.home.menu" 
         :key="idx"
         @mouseenter="menter">
         <i :class="item.type"/> {{ item.name }} <span class="arrow"/> 

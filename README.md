@@ -21,4 +21,6 @@ $ npm run generate
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
 
-持续更新中
+包含数据源文件
+
+持续更新中...

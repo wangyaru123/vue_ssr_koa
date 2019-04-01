@@ -13,6 +13,7 @@ const store = () =>
     },
     actions: {
       async nuxtServerInit({ commit }, { req, app }) {
+        //当前地区
         const {
           status,
           data: { province, city }
@@ -21,11 +22,22 @@ const store = () =>
           'geo/setPosition',
           status === 200 ? { city, province } : { city: '', province: '' }
         )
+        //菜单
         const {
           status: status2,
           data: { menu }
         } = await app.$axios.get('/geo/menu')
         commit('home/setMenu', status2 === 200 ? menu : [])
+        //热门推荐
+        const {
+          status: status3,
+          data: { result }
+        } = await app.$axios.get('/search/hotPlace', {
+          params: {
+            city: app.store.state.geo.position.city.replace('市', '')
+          }
+        })
+        commit('home/setHotPlace', status3 === 200 ? result : [])
       }
     }
   })

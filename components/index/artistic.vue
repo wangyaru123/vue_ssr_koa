@@ -102,10 +102,11 @@ export default {
         } = await self.$axios.get('/search/resultsByKeywords', {
           params: {
             keyword,
-            city: ''
+            city: self.$store.state.geo.position.city
           }
         })
         if (status === 200 && count > 0) {
+          //字段映射，这样的话，后台改字段的话，就可以减少依赖，还可以进行初始化
           let r = pois.filter(item => item.photos.length).map(item => {
             return {
               title: item.name,
